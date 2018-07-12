@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="share-admin" />
+        <module name="share-api-admin" />
+        <module name="share-api-common" />
+        <module name="share-api-dao" />
+        <module name="share-api-rpc-api" />
+        <module name="share-api-rpc-service" />
+        <module name="share-api-server" />
+        <module name="share-ciq-admin" />
+        <module name="share-ciq-common" />
+        <module name="share-ciq-dao" />
+        <module name="share-ciq-rpc-api" />
+        <module name="share-ciq-rpc-service" />
+        <module name="share-ciq-web" />
+        <module name="share-cms-admin" />
+        <module name="share-cms-common" />
+        <module name="share-cms-dao" />
+        <module name="share-cms-rpc-api" />
+        <module name="share-cms-rpc-service" />
+        <module name="share-cms-web" />
+        <module name="share-common" />
+        <module name="share-cpm-admin" />
+        <module name="share-cpm-common" />
+        <module name="share-cpm-dao" />
+        <module name="share-cpm-rpc-api" />
+        <module name="share-cpm-rpc-service" />
+        <module name="share-cpm-web" />
+        <module name="share-demo-rpc-api" />
+        <module name="share-demo-rpc-service" />
+        <module name="share-demo-web" />
+        <module name="share-des-co" />
+        <module name="share-des-ef" />
+        <module name="share-des-ib" />
+        <module name="share-des-rpc-api" />
+        <module name="share-des-vp" />
+        <module name="share-im-admin" />
+        <module name="share-im-common" />
+        <module name="share-im-dao" />
+        <module name="share-im-rpc-api" />
+        <module name="share-im-rpc-service" />
+        <module name="share-im-web" />
+        <module name="share-os-admin" />
+        <module name="share-os-common" />
+        <module name="share-os-dao" />
+        <module name="share-os-rpc-api" />
+        <module name="share-os-rpc-service" />
+        <module name="share-os-web" />
+        <module name="share-ps-admin" />
+        <module name="share-ps-common" />
+        <module name="share-ps-dao" />
+        <module name="share-ps-rpc-api" />
+        <module name="share-ps-rpc-service" />
+        <module name="share-ps-web" />
+        <module name="share-upms-client" />
+        <module name="share-upms-common" />
+        <module name="share-upms-dao" />
+        <module name="share-upms-rpc-api" />
+        <module name="share-upms-rpc-service" />
+        <module name="share-upms-server" />
+        <module name="share-vtm-admin" />
+        <module name="share-vtm-common" />
+        <module name="share-vtm-dao" />
+        <module name="share-vtm-rpc-api" />
+        <module name="share-vtm-rpc-service" />
+        <module name="share-vtm-web" />
+        <module name="share-wechat-mp-admin" />
+        <module name="share-wechat-mp-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="share-cms-job" target="1.8" />
+      <module name="share-cms-search" target="1.8" />
+      <module name="share-demo" target="1.8" />
+      <module name="share-demo-rpc-api" target="1.8" />
+      <module name="share-demo-rpc-service" target="1.7" />
+      <module name="share-demo-web" target="1.8" />
+      <module name="share-des" target="1.8" />
+      <module name="share-des-co" target="1.8" />
+      <module name="share-des-ef" target="1.8" />
+      <module name="share-des-ib" target="1.8" />
+      <module name="share-des-rpc-api" target="1.8" />
+      <module name="share-des-vp" target="1.8" />
+      <module name="share-oss" target="1.8" />
+      <module name="share-oss-admin" target="1.8" />
+      <module name="share-oss-sdk" target="1.8" />
+      <module name="share-oss-web" target="1.8" />
+      <module name="share-pay" target="1.8" />
+      <module name="share-pay-admin" target="1.8" />
+      <module name="share-pay-common" target="1.8" />
+      <module name="share-pay-dao" target="1.8" />
+      <module name="share-pay-rpc-api" target="1.8" />
+      <module name="share-pay-rpc-service" target="1.7" />
+      <module name="share-pay-sdk" target="1.8" />
+      <module name="share-pay-web" target="1.8" />
+      <module name="share-shop" target="1.8" />
+      <module name="share-ucenter" target="1.8" />
+      <module name="share-ucenter-common" target="1.8" />
+      <module name="share-ucenter-dao" target="1.8" />
+      <module name="share-ucenter-rpc-api" target="1.8" />
+      <module name="share-ucenter-rpc-service" target="1.7" />
+      <module name="share-ucenter-web" target="1.8" />
+      <module name="share-wechat" target="1.8" />
+      <module name="share-wechat-app" target="1.7" />
+      <module name="share-wechat-mp" target="1.7" />
+      <module name="share-wechat-mp-dao" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

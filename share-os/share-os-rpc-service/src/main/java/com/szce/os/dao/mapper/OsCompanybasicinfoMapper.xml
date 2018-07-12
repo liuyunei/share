@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szce.os.dao.mapper.OsCompanybasicinfoMapper">
+  <resultMap id="BaseResultMap" type="com.szce.os.dao.model.OsCompanybasicinfo">
+    <id column="COMPANYID" jdbcType="VARCHAR" property="companyid" />
+    <result column="COMPAYNAME" jdbcType="VARCHAR" property="compayname" />
+    <result column="REGISTEREDCAPITAL" jdbcType="DOUBLE" property="registeredcapital" />
+    <result column="LEGALREPRESENTATIVE" jdbcType="VARCHAR" property="legalrepresentative" />
+    <result column="REGISTRATIONTIME" jdbcType="TIMESTAMP" property="registrationtime" />
+    <result column="BUSINESSREGISTRATIONNUMBER" jdbcType="VARCHAR" property="businessregistrationnumber" />
+    <result column="ORGANIZATIONCODEj" jdbcType="VARCHAR" property="organizationcodej" />
+    <result column="UNIFIEDCREDITCODE" jdbcType="VARCHAR" property="unifiedcreditcode" />
+    <result column="BUSINESSOPERATIONSTATUS" jdbcType="VARCHAR" property="businessoperationstatus" />
+    <result column="BUSINESSEXECUTIVES" jdbcType="VARCHAR" property="businessexecutives" />
+    <result column="CITYOPERATIONMANAGER" jdbcType="VARCHAR" property="cityoperationmanager" />
+    <result column="CONTACTNUMBER" jdbcType="INTEGER" property="contactnumber" />
+    <result column="E-MAIL" jdbcType="VARCHAR" property="eMail" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    COMPANYID, COMPAYNAME, REGISTEREDCAPITAL, LEGALREPRESENTATIVE, REGISTRATIONTIME, 
+    BUSINESSREGISTRATIONNUMBER, ORGANIZATIONCODEj, UNIFIEDCREDITCODE, BUSINESSOPERATIONSTATUS, 
+    BUSINESSEXECUTIVES, CITYOPERATIONMANAGER, CONTACTNUMBER, E-MAIL
+  </sql>
+  <select id="selectByExample" parameterType="com.szce.os.dao.model.OsCompanybasicinfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from os_companybasicinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from os_companybasicinfo
+    where COMPANYID = #{companyid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from os_companybasicinfo
+    where COMPANYID = #{companyid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.szce.os.dao.model.OsCompanybasicinfoExample">
+    delete from os_companybasicinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.szce.os.dao.model.OsCompanybasicinfo">
+    insert into os_companybasicinfo (COMPANYID, COMPAYNAME, REGISTEREDCAPITAL, 
+      LEGALREPRESENTATIVE, REGISTRATIONTIME, 
+      BUSINESSREGISTRATIONNUMBER, ORGANIZATIONCODEj, 
+      UNIFIEDCREDITCODE, BUSINESSOPERATIONSTATUS, 
+      BUSINESSEXECUTIVES, CITYOPERATIONMANAGER, 
+      CONTACTNUMBER, E-MAIL)
+    values (#{companyid,jdbcType=VARCHAR}, #{compayname,jdbcType=VARCHAR}, #{registeredcapital,jdbcType=DOUBLE}, 
+      #{legalrepresentative,jdbcType=VARCHAR}, #{registrationtime,jdbcType=TIMESTAMP}, 
+      #{businessregistrationnumber,jdbcType=VARCHAR}, #{organizationcodej,jdbcType=VARCHAR}, 
+      #{unifiedcreditcode,jdbcType=VARCHAR}, #{businessoperationstatus,jdbcType=VARCHAR}, 
+      #{businessexecutives,jdbcType=VARCHAR}, #{cityoperationmanager,jdbcType=VARCHAR}, 
+      #{contactnumber,jdbcType=INTEGER}, #{eMail,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.szce.os.dao.model.OsCompanybasicinfo">
+    insert into os_companybasicinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="companyid != null">
+        COMPANYID,
+      </if>
+      <if test="compayname != null">
+        COMPAYNAME,
+      </if>
+      <if test="registeredcapital != null">
+        REGISTEREDCAPITAL,
+      </if>
+      <if test="legalrepresentative != null">
+        LEGALREPRESENTATIVE,
+      </if>
+      <if test="registrationtime != null">
+        REGISTRATIONTIME,
+      </if>
+      <if test="businessregistrationnumber != null">
+        BUSINESSREGISTRATIONNUMBER,
+      </if>
+      <if test="organizationcodej != null">
+        ORGANIZATIONCODEj,
+      </if>
+      <if test="unifiedcreditcode != null">
+        UNIFIEDCREDITCODE,
+      </if>
+      <if test="businessoperationstatus != null">
+        BUSINESSOPERATIONSTATUS,
+      </if>
+      <if test="businessexecutives != null">
+        BUSINESSEXECUTIVES,
+      </if>
+      <if test="cityoperationmanager != null">
+        CITYOPERATIONMANAGER,
+      </if>
+      <if test="contactnumber != null">
+        CONTACTNUMBER,
+      </if>
+      <if test="eMail != null">
+        E-MAIL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="companyid != null">
+        #{companyid,jdbcType=VARCHAR},
+      </if>
+      <if test="compayname != null">
+        #{compayname,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredcapital != null">
+        #{registeredcapital,jdbcType=DOUBLE},
+      </if>
+      <if test="legalrepresentative != null">
+        #{legalrepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationtime != null">
+        #{registrationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businessregistrationnumber != null">
+        #{businessregistrationnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationcodej != null">
+        #{organizationcodej,jdbcType=VARCHAR},
+      </if>
+      <if test="unifiedcreditcode != null">
+        #{unifiedcreditcode,jdbcType=VARCHAR},
+      </if>
+      <if test="businessoperationstatus != null">
+        #{businessoperationstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="businessexecutives != null">
+        #{businessexecutives,jdbcType=VARCHAR},
+      </if>
+      <if test="cityoperationmanager != null">
+        #{cityoperationmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="contactnumber != null">
+        #{contactnumber,jdbcType=INTEGER},
+      </if>
+      <if test="eMail != null">
+        #{eMail,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.szce.os.dao.model.OsCompanybasicinfoExample" resultType="java.lang.Long">
+    select count(*) from os_companybasicinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update os_companybasicinfo
+    <set>
+      <if test="record.companyid != null">
+        COMPANYID = #{record.companyid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.compayname != null">
+        COMPAYNAME = #{record.compayname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registeredcapital != null">
+        REGISTEREDCAPITAL = #{record.registeredcapital,jdbcType=DOUBLE},
+      </if>
+      <if test="record.legalrepresentative != null">
+        LEGALREPRESENTATIVE = #{record.legalrepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registrationtime != null">
+        REGISTRATIONTIME = #{record.registrationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.businessregistrationnumber != null">
+        BUSINESSREGISTRATIONNUMBER = #{record.businessregistrationnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.organizationcodej != null">
+        ORGANIZATIONCODEj = #{record.organizationcodej,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unifiedcreditcode != null">
+        UNIFIEDCREDITCODE = #{record.unifiedcreditcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessoperationstatus != null">
+        BUSINESSOPERATIONSTATUS = #{record.businessoperationstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessexecutives != null">
+        BUSINESSEXECUTIVES = #{record.businessexecutives,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityoperationmanager != null">
+        CITYOPERATIONMANAGER = #{record.cityoperationmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contactnumber != null">
+        CONTACTNUMBER = #{record.contactnumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.eMail != null">
+        E-MAIL = #{record.eMail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update os_companybasicinfo
+    set COMPANYID = #{record.companyid,jdbcType=VARCHAR},
+      COMPAYNAME = #{record.compayname,jdbcType=VARCHAR},
+      REGISTEREDCAPITAL = #{record.registeredcapital,jdbcType=DOUBLE},
+      LEGALREPRESENTATIVE = #{record.legalrepresentative,jdbcType=VARCHAR},
+      REGISTRATIONTIME = #{record.registrationtime,jdbcType=TIMESTAMP},
+      BUSINESSREGISTRATIONNUMBER = #{record.businessregistrationnumber,jdbcType=VARCHAR},
+      ORGANIZATIONCODEj = #{record.organizationcodej,jdbcType=VARCHAR},
+      UNIFIEDCREDITCODE = #{record.unifiedcreditcode,jdbcType=VARCHAR},
+      BUSINESSOPERATIONSTATUS = #{record.businessoperationstatus,jdbcType=VARCHAR},
+      BUSINESSEXECUTIVES = #{record.businessexecutives,jdbcType=VARCHAR},
+      CITYOPERATIONMANAGER = #{record.cityoperationmanager,jdbcType=VARCHAR},
+      CONTACTNUMBER = #{record.contactnumber,jdbcType=INTEGER},
+      E-MAIL = #{record.eMail,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.szce.os.dao.model.OsCompanybasicinfo">
+    update os_companybasicinfo
+    <set>
+      <if test="compayname != null">
+        COMPAYNAME = #{compayname,jdbcType=VARCHAR},
+      </if>
+      <if test="registeredcapital != null">
+        REGISTEREDCAPITAL = #{registeredcapital,jdbcType=DOUBLE},
+      </if>
+      <if test="legalrepresentative != null">
+        LEGALREPRESENTATIVE = #{legalrepresentative,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationtime != null">
+        REGISTRATIONTIME = #{registrationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="businessregistrationnumber != null">
+        BUSINESSREGISTRATIONNUMBER = #{businessregistrationnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationcodej != null">
+        ORGANIZATIONCODEj = #{organizationcodej,jdbcType=VARCHAR},
+      </if>
+      <if test="unifiedcreditcode != null">
+        UNIFIEDCREDITCODE = #{unifiedcreditcode,jdbcType=VARCHAR},
+      </if>
+      <if test="businessoperationstatus != null">
+        BUSINESSOPERATIONSTATUS = #{businessoperationstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="businessexecutives != null">
+        BUSINESSEXECUTIVES = #{businessexecutives,jdbcType=VARCHAR},
+      </if>
+      <if test="cityoperationmanager != null">
+        CITYOPERATIONMANAGER = #{cityoperationmanager,jdbcType=VARCHAR},
+      </if>
+      <if test="contactnumber != null">
+        CONTACTNUMBER = #{contactnumber,jdbcType=INTEGER},
+      </if>
+      <if test="eMail != null">
+        E-MAIL = #{eMail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where COMPANYID = #{companyid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.szce.os.dao.model.OsCompanybasicinfo">
+    update os_companybasicinfo
+    set COMPAYNAME = #{compayname,jdbcType=VARCHAR},
+      REGISTEREDCAPITAL = #{registeredcapital,jdbcType=DOUBLE},
+      LEGALREPRESENTATIVE = #{legalrepresentative,jdbcType=VARCHAR},
+      REGISTRATIONTIME = #{registrationtime,jdbcType=TIMESTAMP},
+      BUSINESSREGISTRATIONNUMBER = #{businessregistrationnumber,jdbcType=VARCHAR},
+      ORGANIZATIONCODEj = #{organizationcodej,jdbcType=VARCHAR},
+      UNIFIEDCREDITCODE = #{unifiedcreditcode,jdbcType=VARCHAR},
+      BUSINESSOPERATIONSTATUS = #{businessoperationstatus,jdbcType=VARCHAR},
+      BUSINESSEXECUTIVES = #{businessexecutives,jdbcType=VARCHAR},
+      CITYOPERATIONMANAGER = #{cityoperationmanager,jdbcType=VARCHAR},
+      CONTACTNUMBER = #{contactnumber,jdbcType=INTEGER},
+      E-MAIL = #{eMail,jdbcType=VARCHAR}
+    where COMPANYID = #{companyid,jdbcType=VARCHAR}
+  </update>
+  <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+</mapper>

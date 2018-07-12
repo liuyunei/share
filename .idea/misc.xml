@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/share-api/share-api-server" />
+    <file type="web" url="file://$PROJECT_DIR$/share-ciq" />
+    <file type="web" url="file://$PROJECT_DIR$/share-cms/share-cms-admin" />
+    <file type="web" url="file://$PROJECT_DIR$/share-cms/share-cms-job" />
+    <file type="web" url="file://$PROJECT_DIR$/share-cms/share-cms-search" />
+    <file type="web" url="file://$PROJECT_DIR$/share-cms/share-cms-web" />
+    <file type="web" url="file://$PROJECT_DIR$/share-cpm/share-cpm-web" />
+    <file type="web" url="file://$PROJECT_DIR$/share-demo/share-demo-web" />
+    <file type="web" url="file://$PROJECT_DIR$/share-im/share-im-web" />
+    <file type="web" url="file://$PROJECT_DIR$/share-os/share-os-web" />
+    <file type="web" url="file://$PROJECT_DIR$/share-oss/share-oss-admin" />
+    <file type="web" url="file://$PROJECT_DIR$/share-oss/share-oss-web" />
+    <file type="web" url="file://$PROJECT_DIR$/share-pay/share-pay-admin" />
+    <file type="web" url="file://$PROJECT_DIR$/share-pay/share-pay-web" />
+    <file type="web" url="file://$PROJECT_DIR$/share-ps/share-ps-web" />
+    <file type="web" url="file://$PROJECT_DIR$/share-ucenter/share-ucenter-web" />
+    <file type="web" url="file://$PROJECT_DIR$/share-upms/share-upms-server" />
+    <file type="web" url="file://$PROJECT_DIR$/share-vtm/share-vtm-web" />
+    <file type="web" url="file://$PROJECT_DIR$/share-wechat/share-wechat-mp/share-wechat-mp-admin" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/share-wechat/pom.xml" />
+        <option value="$PROJECT_DIR$/share-upms/pom.xml" />
+        <option value="$PROJECT_DIR$/share-ucenter/pom.xml" />
+        <option value="$PROJECT_DIR$/share-shop/pom.xml" />
+        <option value="$PROJECT_DIR$/share-pay/pom.xml" />
+        <option value="$PROJECT_DIR$/share-common/pom.xml" />
+        <option value="$PROJECT_DIR$/share-cms/pom.xml" />
+        <option value="$PROJECT_DIR$/share-api/pom.xml" />
+        <option value="$PROJECT_DIR$/share-admin/pom.xml" />
+        <option value="$PROJECT_DIR$/share-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/share-oss/pom.xml" />
+        <option value="$PROJECT_DIR$/share-ucenter/sahre-ucenter-rpc-api/pom.xml" />
+        <option value="$PROJECT_DIR$/share-ucenter/share-ucenter-rpc-api/pom.xml" />
+        <option value="$PROJECT_DIR$/share-ciq/share-ciq-common/pom.xml" />
+        <option value="$PROJECT_DIR$/share-ciq/pom.xml" />
+        <option value="$PROJECT_DIR$/share-ciq/share-ciq-dao/pom.xml" />
+        <option value="$PROJECT_DIR$/share-ciq/share-ciq-rpc-api/pom.xml" />
+        <option value="$PROJECT_DIR$/share-ciq/share-ciq-rpc-service/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

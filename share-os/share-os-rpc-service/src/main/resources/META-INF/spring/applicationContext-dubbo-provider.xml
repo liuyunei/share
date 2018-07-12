@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
+
+    <dubbo:application name="share-cms-rpc-service"/>
+
+    <dubbo:registry address="zookeeper://zkserver:2181"/>
+
+    <dubbo:protocol name="dubbo" port="20882"/>
+
+    <!--<dubbo:monitor protocol="registry"/>-->
+
+    <!--=============================================基础信息模块==========================================================-->
+    <!-- 企业基本信息 -->
+    <bean id="osCompanybasicinfoServiceImpl" class="com.szce.os.rpc.service.impl.OsCompanybasicinfoServiceImpl"/>
+    <dubbo:service interface="com.szce.os.rpc.api.OsCompanybasicinfoService" ref="osCompanybasicinfoServiceImpl" timeout="10000"/>
+
+    <!-- 企业相关信息 -->
+    <bean id="osCompanyrelatedmaterialsServiceImpl" class="com.szce.os.rpc.service.impl.OsCompanyrelatedmaterialsServiceImpl"/>
+    <dubbo:service interface="com.szce.os.rpc.api.OsCompanyrelatedmaterialsService" ref="osCompanyrelatedmaterialsServiceImpl" timeout="10000"/>
+
+    <!-- 企业投诉处理记录 -->
+    <bean id="osComplainthandlingrecordServiceImpl" class="com.szce.os.rpc.service.impl.OsComplainthandlingrecordServiceImpl"/>
+    <dubbo:service interface="com.szce.os.rpc.api.OsComplainthandlingrecordService" ref="osComplainthandlingrecordServiceImpl" timeout="10000"/>
+
+    <!-- 企业用户情况 -->
+    <bean id="osUserreviewServiceImpl" class="com.szce.os.rpc.service.impl.OsUserreviewServiceImpl"/>
+    <dubbo:service interface="com.szce.os.rpc.api.OsUserreviewService" ref="osUserreviewServiceImpl" timeout="10000"/>
+
+    <!--===============================================基础信息模块  ========================================================-->
+
+</beans>
