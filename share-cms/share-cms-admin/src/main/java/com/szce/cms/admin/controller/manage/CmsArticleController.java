@@ -30,7 +30,7 @@ import java.util.Map;
 
 /**
  * 文章控制器
- * Created by szce on 2016/11/14.
+ * Created by szce on 2018/11/14.
  */
 @Controller
 @Api(value = "文章管理", description = "文章管理")
@@ -46,14 +46,14 @@ public class CmsArticleController extends BaseController {
 	private CmsTopicService cmsTopicService;
 
 	@ApiOperation(value = "文章首页")
-	@RequiresPermissions("vtm:article:read")
+	@RequiresPermissions("cms:article:read")
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
 		return "/manage/article/index.jsp";
 	}
 
 	@ApiOperation(value = "文章列表")
-	@RequiresPermissions("vtm:article:read")
+	@RequiresPermissions("cms:article:read")
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@ResponseBody
 	public Object list(
@@ -74,7 +74,7 @@ public class CmsArticleController extends BaseController {
 	}
 
 	@ApiOperation(value = "新增文章")
-	@RequiresPermissions("vtm:article:create")
+	@RequiresPermissions("cms:article:create")
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String create(ModelMap modelMap) {
 		CmsTopicExample cmsTopicExample = new CmsTopicExample();
@@ -85,7 +85,7 @@ public class CmsArticleController extends BaseController {
 	}
 
 	@ApiOperation(value = "新增文章")
-	@RequiresPermissions("vtm:article:create")
+	@RequiresPermissions("cms:article:create")
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	@ResponseBody
 	public Object create(CmsArticle cmsArticle) {
@@ -105,7 +105,7 @@ public class CmsArticleController extends BaseController {
 	}
 
 	@ApiOperation(value = "删除文章")
-	@RequiresPermissions("vtm:article:delete")
+	@RequiresPermissions("cms:article:delete")
 	@RequestMapping(value = "/delete/{ids}",method = RequestMethod.GET)
 	@ResponseBody
 	public Object delete(@PathVariable("ids") String ids) {
@@ -114,7 +114,7 @@ public class CmsArticleController extends BaseController {
 	}
 
 	@ApiOperation(value = "修改文章")
-	@RequiresPermissions("vtm:article:update")
+	@RequiresPermissions("cms:article:update")
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String update(@PathVariable("id") int id, ModelMap modelMap) {
 		CmsTopicExample cmsTopicExample = new CmsTopicExample();
@@ -127,7 +127,7 @@ public class CmsArticleController extends BaseController {
 	}
 
 	@ApiOperation(value = "修改文章")
-	@RequiresPermissions("vtm:article:update")
+	@RequiresPermissions("cms:article:update")
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
 	@ResponseBody
 	public Object update(@PathVariable("id") int id, CmsArticle cmsArticle) {

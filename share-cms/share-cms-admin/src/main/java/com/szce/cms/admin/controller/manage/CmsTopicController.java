@@ -27,7 +27,7 @@ import java.util.Map;
 
 /**
  * 专题控制器
- * Created by szce on 2017/3/18.
+ * Created by szce on 2018/7/18.
  */
 @Controller
 @Api(value = "专题管理", description = "专题管理")
@@ -40,14 +40,14 @@ public class CmsTopicController extends BaseController {
 	private CmsTopicService cmsTopicService;
 
 	@ApiOperation(value = "评论首页")
-	@RequiresPermissions("vtm:topic:read")
+	@RequiresPermissions("cms:topic:read")
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
 		return "/manage/topic/index.jsp";
 	}
 
 	@ApiOperation(value = "评论列表")
-	@RequiresPermissions("vtm:topic:read")
+	@RequiresPermissions("cms:topic:read")
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@ResponseBody
 	public Object list(
@@ -68,14 +68,14 @@ public class CmsTopicController extends BaseController {
 	}
 
 	@ApiOperation(value = "新增专题")
-	@RequiresPermissions("vtm:topic:create")
+	@RequiresPermissions("cms:topic:create")
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String create() {
 		return "/manage/topic/create.jsp";
 	}
 
 	@ApiOperation(value = "新增专题")
-	@RequiresPermissions("vtm:topic:create")
+	@RequiresPermissions("cms:topic:create")
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	@ResponseBody
 	public Object create(CmsTopic cmsTopic) {
@@ -93,7 +93,7 @@ public class CmsTopicController extends BaseController {
 	}
 
 	@ApiOperation(value = "删除专题")
-	@RequiresPermissions("vtm:topic:delete")
+	@RequiresPermissions("cms:topic:delete")
 	@RequestMapping(value = "/delete/{ids}",method = RequestMethod.GET)
 	@ResponseBody
 	public Object delete(@PathVariable("ids") String ids) {
@@ -102,7 +102,7 @@ public class CmsTopicController extends BaseController {
 	}
 
 	@ApiOperation(value = "修改专题")
-	@RequiresPermissions("vtm:topic:update")
+	@RequiresPermissions("cms:topic:update")
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String update(@PathVariable("id") int id, ModelMap modelMap) {
 		CmsTopic topic = cmsTopicService.selectByPrimaryKey(id);
@@ -111,7 +111,7 @@ public class CmsTopicController extends BaseController {
 	}
 
 	@ApiOperation(value = "修改专题")
-	@RequiresPermissions("vtm:topic:update")
+	@RequiresPermissions("cms:topic:update")
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
 	@ResponseBody
 	public Object update(@PathVariable("id") int id, CmsTopic cmsTopic) {

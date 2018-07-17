@@ -27,7 +27,7 @@ import java.util.Map;
 
 /**
  * 标签控制器
- * Created by szce on 2016/11/14.
+ * Created by szce on 2018/11/14.
  */
 @Controller
 @Api(value = "标签管理", description = "标签管理")
@@ -40,14 +40,14 @@ public class CmsTagController extends BaseController {
 	private CmsTagService cmsTagService;
 
 	@ApiOperation(value = "评论首页")
-	@RequiresPermissions("vtm:tag:read")
+	@RequiresPermissions("cms:tag:read")
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
 		return "/manage/tag/index.jsp";
 	}
 
 	@ApiOperation(value = "评论列表")
-	@RequiresPermissions("vtm:tag:read")
+	@RequiresPermissions("cms:tag:read")
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@ResponseBody
 	public Object list(
@@ -68,14 +68,14 @@ public class CmsTagController extends BaseController {
 	}
 
 	@ApiOperation(value = "新增标签")
-	@RequiresPermissions("vtm:tag:create")
+	@RequiresPermissions("cms:tag:create")
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String create() {
 		return "/manage/tag/create.jsp";
 	}
 
 	@ApiOperation(value = "新增标签")
-	@RequiresPermissions("vtm:tag:create")
+	@RequiresPermissions("cms:tag:create")
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	@ResponseBody
 	public Object create(CmsTag cmsTag) {
@@ -94,7 +94,7 @@ public class CmsTagController extends BaseController {
 	}
 
 	@ApiOperation(value = "删除标签")
-	@RequiresPermissions("vtm:tag:delete")
+	@RequiresPermissions("cms:tag:delete")
 	@RequestMapping(value = "/delete/{ids}",method = RequestMethod.GET)
 	@ResponseBody
 	public Object delete(@PathVariable("ids") String ids) {
@@ -103,7 +103,7 @@ public class CmsTagController extends BaseController {
 	}
 
 	@ApiOperation(value = "修改标签")
-	@RequiresPermissions("vtm:tag:update")
+	@RequiresPermissions("cms:tag:update")
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String update(@PathVariable("id") int id, ModelMap modelMap) {
 		CmsTag tag = cmsTagService.selectByPrimaryKey(id);
@@ -112,7 +112,7 @@ public class CmsTagController extends BaseController {
 	}
 
 	@ApiOperation(value = "修改标签")
-	@RequiresPermissions("vtm:tag:update")
+	@RequiresPermissions("cms:tag:update")
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
 	@ResponseBody
 	public Object update(@PathVariable("id") int id, CmsTag cmsTag) {

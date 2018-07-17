@@ -41,14 +41,14 @@ public class CmsSettingController extends BaseController {
 	private CmsSettingService cmsSettingService;
 
 	@ApiOperation(value = "评论首页")
-	@RequiresPermissions("vtm:setting:read")
+	@RequiresPermissions("cms:setting:read")
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
 		return "/manage/setting/index.jsp";
 	}
 
 	@ApiOperation(value = "评论列表")
-	@RequiresPermissions("vtm:setting:read")
+	@RequiresPermissions("cms:setting:read")
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@ResponseBody
 	public Object list(
@@ -69,14 +69,14 @@ public class CmsSettingController extends BaseController {
 	}
 
 	@ApiOperation(value = "新增设置")
-	@RequiresPermissions("vtm:setting:create")
+	@RequiresPermissions("cms:setting:create")
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String create() {
 		return "/manage/setting/create.jsp";
 	}
 
 	@ApiOperation(value = "新增设置")
-	@RequiresPermissions("vtm:setting:create")
+	@RequiresPermissions("cms:setting:create")
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	@ResponseBody
 	public Object create(CmsSetting cmsSetting) {
@@ -92,7 +92,7 @@ public class CmsSettingController extends BaseController {
 	}
 
 	@ApiOperation(value = "删除设置")
-	@RequiresPermissions("vtm:setting:delete")
+	@RequiresPermissions("cms:setting:delete")
 	@RequestMapping(value = "/delete/{ids}",method = RequestMethod.GET)
 	@ResponseBody
 	public Object delete(@PathVariable("ids") String ids) {
@@ -101,7 +101,7 @@ public class CmsSettingController extends BaseController {
 	}
 
 	@ApiOperation(value = "修改设置")
-	@RequiresPermissions("vtm:setting:update")
+	@RequiresPermissions("cms:setting:update")
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String update(@PathVariable("id") int id, ModelMap modelMap) {
 		CmsSetting setting = cmsSettingService.selectByPrimaryKey(id);
@@ -110,7 +110,7 @@ public class CmsSettingController extends BaseController {
 	}
 
 	@ApiOperation(value = "修改设置")
-	@RequiresPermissions("vtm:setting:update")
+	@RequiresPermissions("cms:setting:update")
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
 	@ResponseBody
 	public Object update(@PathVariable("id") int id, CmsSetting cmsSetting) {

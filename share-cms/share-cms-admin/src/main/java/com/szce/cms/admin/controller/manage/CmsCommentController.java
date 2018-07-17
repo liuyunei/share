@@ -36,14 +36,14 @@ public class CmsCommentController extends BaseController {
 	private CmsCommentService cmsCommentService;
 
 	@ApiOperation(value = "评论首页")
-	@RequiresPermissions("vtm:comment:read")
+	@RequiresPermissions("cms:comment:read")
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
 		return "/manage/comment/index.jsp";
 	}
 
 	@ApiOperation(value = "评论列表")
-	@RequiresPermissions("vtm:comment:read")
+	@RequiresPermissions("cms:comment:read")
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@ResponseBody
 	public Object list(
@@ -64,14 +64,14 @@ public class CmsCommentController extends BaseController {
 	}
 
 	@ApiOperation(value = "新增评论")
-	@RequiresPermissions("vtm:comment:create")
+	@RequiresPermissions("cms:comment:create")
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String create() {
 		return "/manage/comment/create.jsp";
 	}
 
 	@ApiOperation(value = "新增评论")
-	@RequiresPermissions("vtm:comment:create")
+	@RequiresPermissions("cms:comment:create")
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	@ResponseBody
 	public Object create(CmsComment cmsComment) {
@@ -82,7 +82,7 @@ public class CmsCommentController extends BaseController {
 	}
 
 	@ApiOperation(value = "删除评论")
-	@RequiresPermissions("vtm:comment:delete")
+	@RequiresPermissions("cms:comment:delete")
 	@RequestMapping(value = "/delete/{ids}",method = RequestMethod.GET)
 	@ResponseBody
 	public Object delete(@PathVariable("ids") String ids) {
@@ -91,7 +91,7 @@ public class CmsCommentController extends BaseController {
 	}
 
 	@ApiOperation(value = "修改评论")
-	@RequiresPermissions("vtm:comment:update")
+	@RequiresPermissions("cms:comment:update")
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String update(@PathVariable("id") int id, ModelMap modelMap) {
 		CmsComment comment = cmsCommentService.selectByPrimaryKey(id);
@@ -100,7 +100,7 @@ public class CmsCommentController extends BaseController {
 	}
 
 	@ApiOperation(value = "修改评论")
-	@RequiresPermissions("vtm:comment:update")
+	@RequiresPermissions("cms:comment:update")
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
 	@ResponseBody
 	public Object update(@PathVariable("id") int id, CmsComment cmsComment) {

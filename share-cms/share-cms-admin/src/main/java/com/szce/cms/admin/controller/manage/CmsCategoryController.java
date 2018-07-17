@@ -40,14 +40,14 @@ public class CmsCategoryController extends BaseController {
 	private CmsCategoryService cmsCategoryService;
 
 	@ApiOperation(value = "类目首页")
-	@RequiresPermissions("vtm:category:read")
+	@RequiresPermissions("cms:category:read")
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
 		return "/manage/category/index.jsp";
 	}
 
 	@ApiOperation(value = "类目列表")
-	@RequiresPermissions("vtm:category:read")
+	@RequiresPermissions("cms:category:read")
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@ResponseBody
 	public Object list(
@@ -68,14 +68,14 @@ public class CmsCategoryController extends BaseController {
 	}
 
 	@ApiOperation(value = "新增类目")
-	@RequiresPermissions("vtm:category:create")
+	@RequiresPermissions("cms:category:create")
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String create() {
 		return "/manage/category/create.jsp";
 	}
 
 	@ApiOperation(value = "新增类目")
-	@RequiresPermissions("vtm:category:create")
+	@RequiresPermissions("cms:category:create")
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	@ResponseBody
 	public Object create(CmsCategory cmsCategory) {
@@ -94,7 +94,7 @@ public class CmsCategoryController extends BaseController {
 	}
 
 	@ApiOperation(value = "删除类目")
-	@RequiresPermissions("vtm:category:delete")
+	@RequiresPermissions("cms:category:delete")
 	@RequestMapping(value = "/delete/{ids}",method = RequestMethod.GET)
 	@ResponseBody
 	public Object delete(@PathVariable("ids") String ids) {
@@ -103,7 +103,7 @@ public class CmsCategoryController extends BaseController {
 	}
 
 	@ApiOperation(value = "修改类目")
-	@RequiresPermissions("vtm:category:update")
+	@RequiresPermissions("cms:category:update")
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String update(@PathVariable("id") int id, ModelMap modelMap) {
 		CmsCategory category = cmsCategoryService.selectByPrimaryKey(id);
@@ -112,7 +112,7 @@ public class CmsCategoryController extends BaseController {
 	}
 
 	@ApiOperation(value = "修改类目")
-	@RequiresPermissions("vtm:category:update")
+	@RequiresPermissions("cms:category:update")
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
 	@ResponseBody
 	public Object update(@PathVariable("id") int id, CmsCategory cmsCategory) {

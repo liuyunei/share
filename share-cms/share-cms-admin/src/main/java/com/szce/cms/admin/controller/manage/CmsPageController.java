@@ -40,14 +40,14 @@ public class CmsPageController extends BaseController {
 	private CmsPageService cmsPageService;
 
 	@ApiOperation(value = "评论首页")
-	@RequiresPermissions("vtm:page:read")
+	@RequiresPermissions("cms:page:read")
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
 		return "/manage/page/index.jsp";
 	}
 
 	@ApiOperation(value = "评论列表")
-	@RequiresPermissions("vtm:page:read")
+	@RequiresPermissions("cms:page:read")
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@ResponseBody
 	public Object list(
@@ -68,14 +68,14 @@ public class CmsPageController extends BaseController {
 	}
 
 	@ApiOperation(value = "新增单页")
-	@RequiresPermissions("vtm:page:create")
+	@RequiresPermissions("cms:page:create")
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String create() {
 		return "/manage/page/create.jsp";
 	}
 
 	@ApiOperation(value = "新增单页")
-	@RequiresPermissions("vtm:page:create")
+	@RequiresPermissions("cms:page:create")
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	@ResponseBody
 	public Object create(CmsPage cmsPage) {
@@ -94,7 +94,7 @@ public class CmsPageController extends BaseController {
 	}
 
 	@ApiOperation(value = "删除单页")
-	@RequiresPermissions("vtm:page:delete")
+	@RequiresPermissions("cms:page:delete")
 	@RequestMapping(value = "/delete/{ids}",method = RequestMethod.GET)
 	@ResponseBody
 	public Object delete(@PathVariable("ids") String ids) {
@@ -103,7 +103,7 @@ public class CmsPageController extends BaseController {
 	}
 
 	@ApiOperation(value = "修改单页")
-	@RequiresPermissions("vtm:page:update")
+	@RequiresPermissions("cms:page:update")
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String update(@PathVariable("id") int id, ModelMap modelMap) {
 		CmsPage page = cmsPageService.selectByPrimaryKey(id);
@@ -112,7 +112,7 @@ public class CmsPageController extends BaseController {
 	}
 
 	@ApiOperation(value = "修改单页")
-	@RequiresPermissions("vtm:page:update")
+	@RequiresPermissions("cms:page:update")
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
 	@ResponseBody
 	public Object update(@PathVariable("id") int id, CmsPage cmsPage) {
