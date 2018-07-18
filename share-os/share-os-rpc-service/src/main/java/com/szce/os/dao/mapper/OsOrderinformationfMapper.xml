@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szce.os.dao.mapper.OsOrderinformationfMapper">
+  <resultMap id="BaseResultMap" type="com.szce.os.dao.model.OsOrderinformationf">
+    <id column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="ORDERTIME" jdbcType="TIMESTAMP" property="ordertime" />
+    <result column="USERID" jdbcType="VARCHAR" property="userid" />
+    <result column="BIKEID" jdbcType="VARCHAR" property="bikeid" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ORDERID, ORDERTIME, USERID, BIKEID
+  </sql>
+  <select id="selectByExample" parameterType="com.szce.os.dao.model.OsOrderinformationfExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from os_orderinformationf
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from os_orderinformationf
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from os_orderinformationf
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.szce.os.dao.model.OsOrderinformationfExample">
+    delete from os_orderinformationf
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.szce.os.dao.model.OsOrderinformationf">
+    insert into os_orderinformationf (ORDERID, ORDERTIME, USERID, 
+      BIKEID)
+    values (#{orderid,jdbcType=VARCHAR}, #{ordertime,jdbcType=TIMESTAMP}, #{userid,jdbcType=VARCHAR}, 
+      #{bikeid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.szce.os.dao.model.OsOrderinformationf">
+    insert into os_orderinformationf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        ORDERID,
+      </if>
+      <if test="ordertime != null">
+        ORDERTIME,
+      </if>
+      <if test="userid != null">
+        USERID,
+      </if>
+      <if test="bikeid != null">
+        BIKEID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertime != null">
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="bikeid != null">
+        #{bikeid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.szce.os.dao.model.OsOrderinformationfExample" resultType="java.lang.Long">
+    select count(*) from os_orderinformationf
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update os_orderinformationf
+    <set>
+      <if test="record.orderid != null">
+        ORDERID = #{record.orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ordertime != null">
+        ORDERTIME = #{record.ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.userid != null">
+        USERID = #{record.userid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bikeid != null">
+        BIKEID = #{record.bikeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update os_orderinformationf
+    set ORDERID = #{record.orderid,jdbcType=VARCHAR},
+      ORDERTIME = #{record.ordertime,jdbcType=TIMESTAMP},
+      USERID = #{record.userid,jdbcType=VARCHAR},
+      BIKEID = #{record.bikeid,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.szce.os.dao.model.OsOrderinformationf">
+    update os_orderinformationf
+    <set>
+      <if test="ordertime != null">
+        ORDERTIME = #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userid != null">
+        USERID = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="bikeid != null">
+        BIKEID = #{bikeid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.szce.os.dao.model.OsOrderinformationf">
+    update os_orderinformationf
+    set ORDERTIME = #{ordertime,jdbcType=TIMESTAMP},
+      USERID = #{userid,jdbcType=VARCHAR},
+      BIKEID = #{bikeid,jdbcType=VARCHAR}
+    where ORDERID = #{orderid,jdbcType=VARCHAR}
+  </update>
+  <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+</mapper>

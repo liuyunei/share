@@ -1,4 +1,4 @@
-package com.szce.ps.web.schedule;
+package com.szce.vtm.web.schedule;
 
 import com.taobao.pamirs.schedule.IScheduleTaskDealSingle;
 import com.taobao.pamirs.schedule.TaskItemDefine;
@@ -39,7 +39,7 @@ public class MapSchedule implements IScheduleTaskDealSingle<Map> {
      */
     @Override
     public List<Map> selectTasks(String taskParameter, String ownSign, int taskItemNum, List<TaskItemDefine> taskItemList, int eachFetchDataNum) throws Exception {
-        List<Map> allDrawList = new ArrayList<>();
+        List<Map> allDrawList = new ArrayList<Map>();
         Map map = new HashMap(1);
         map.put("ID", System.currentTimeMillis());
         allDrawList.add(map);

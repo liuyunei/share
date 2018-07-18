@@ -8,7 +8,7 @@
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-<packaging>war</packaging>
+    <packaging>war</packaging>
     <artifactId>share-vtm-web</artifactId>
 
     <dependencies>
@@ -94,7 +94,7 @@
                         <contextPath>/</contextPath>
                     </webApp>
                     <httpConnector>
-                        <port>2224</port>
+                        <port>3332</port>
                     </httpConnector>
                     <reload>automatic</reload>
                 </configuration>
@@ -106,6 +106,14 @@
                 <configuration>
                     <skipTests>true</skipTests>
                     <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>6</source>
+                    <target>6</target>
                 </configuration>
             </plugin>
         </plugins>

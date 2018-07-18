@@ -13,10 +13,10 @@ import java.util.Map;
 public class Generator {
 
 	// 根据命名规范，只修改此常量值即可
-	private static String MODULE = "share-vtm";
+	private static String MODULE = "share-im";
 	private static String DATABASE = "share";
-	private static String TABLE_PREFIX = "cms_";
-	private static String PACKAGE_NAME = "com.szce.vtm";
+	private static String TABLE_PREFIX = "im_";
+	private static String PACKAGE_NAME = "com.szce.im";
 	private static String JDBC_DRIVER = PropertiesFileUtil.getInstance("generator").get("generator.jdbc.driver");
 	private static String JDBC_URL = PropertiesFileUtil.getInstance("generator").get("generator.jdbc.url");
 	private static String JDBC_USERNAME = PropertiesFileUtil.getInstance("generator").get("generator.jdbc.username");

@@ -918,73 +918,73 @@ public class OsCompanybasicinfoExample implements Serializable {
             return (Criteria) this;
         }
 
-        public Criteria andEMailIsNull() {
-            addCriterion("E-MAIL is null");
+        public Criteria andEmailIsNull() {
+            addCriterion("EMAIL is null");
             return (Criteria) this;
         }
 
-        public Criteria andEMailIsNotNull() {
-            addCriterion("E-MAIL is not null");
+        public Criteria andEmailIsNotNull() {
+            addCriterion("EMAIL is not null");
             return (Criteria) this;
         }
 
-        public Criteria andEMailEqualTo(String value) {
-            addCriterion("E-MAIL =", value, "eMail");
+        public Criteria andEmailEqualTo(String value) {
+            addCriterion("EMAIL =", value, "email");
             return (Criteria) this;
         }
 
-        public Criteria andEMailNotEqualTo(String value) {
-            addCriterion("E-MAIL <>", value, "eMail");
+        public Criteria andEmailNotEqualTo(String value) {
+            addCriterion("EMAIL <>", value, "email");
             return (Criteria) this;
         }
 
-        public Criteria andEMailGreaterThan(String value) {
-            addCriterion("E-MAIL >", value, "eMail");
+        public Criteria andEmailGreaterThan(String value) {
+            addCriterion("EMAIL >", value, "email");
             return (Criteria) this;
         }
 
-        public Criteria andEMailGreaterThanOrEqualTo(String value) {
-            addCriterion("E-MAIL >=", value, "eMail");
+        public Criteria andEmailGreaterThanOrEqualTo(String value) {
+            addCriterion("EMAIL >=", value, "email");
             return (Criteria) this;
         }
 
-        public Criteria andEMailLessThan(String value) {
-            addCriterion("E-MAIL <", value, "eMail");
+        public Criteria andEmailLessThan(String value) {
+            addCriterion("EMAIL <", value, "email");
             return (Criteria) this;
         }
 
-        public Criteria andEMailLessThanOrEqualTo(String value) {
-            addCriterion("E-MAIL <=", value, "eMail");
+        public Criteria andEmailLessThanOrEqualTo(String value) {
+            addCriterion("EMAIL <=", value, "email");
             return (Criteria) this;
         }
 
-        public Criteria andEMailLike(String value) {
-            addCriterion("E-MAIL like", value, "eMail");
+        public Criteria andEmailLike(String value) {
+            addCriterion("EMAIL like", value, "email");
             return (Criteria) this;
         }
 
-        public Criteria andEMailNotLike(String value) {
-            addCriterion("E-MAIL not like", value, "eMail");
+        public Criteria andEmailNotLike(String value) {
+            addCriterion("EMAIL not like", value, "email");
             return (Criteria) this;
         }
 
-        public Criteria andEMailIn(List<String> values) {
-            addCriterion("E-MAIL in", values, "eMail");
+        public Criteria andEmailIn(List<String> values) {
+            addCriterion("EMAIL in", values, "email");
             return (Criteria) this;
         }
 
-        public Criteria andEMailNotIn(List<String> values) {
-            addCriterion("E-MAIL not in", values, "eMail");
+        public Criteria andEmailNotIn(List<String> values) {
+            addCriterion("EMAIL not in", values, "email");
             return (Criteria) this;
         }
 
-        public Criteria andEMailBetween(String value1, String value2) {
-            addCriterion("E-MAIL between", value1, value2, "eMail");
+        public Criteria andEmailBetween(String value1, String value2) {
+            addCriterion("EMAIL between", value1, value2, "email");
             return (Criteria) this;
         }
 
-        public Criteria andEMailNotBetween(String value1, String value2) {
-            addCriterion("E-MAIL not between", value1, value2, "eMail");
+        public Criteria andEmailNotBetween(String value1, String value2) {
+            addCriterion("EMAIL not between", value1, value2, "email");
             return (Criteria) this;
         }
     }

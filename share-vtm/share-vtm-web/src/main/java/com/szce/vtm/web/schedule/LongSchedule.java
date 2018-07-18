@@ -1,4 +1,4 @@
-package com.szce.ps.web.schedule;
+package com.szce.vtm.web.schedule;
 
 import com.taobao.pamirs.schedule.IScheduleTaskDealSingle;
 import com.taobao.pamirs.schedule.TaskItemDefine;
@@ -41,7 +41,7 @@ public class LongSchedule implements IScheduleTaskDealSingle<Long> {
      */
     @Override
     public List<Long> selectTasks(String taskParameter, String ownSign, int taskItemNum, List<TaskItemDefine> taskItemList, int eachFetchDataNum) throws Exception {
-        List<Long> allDrawList = new ArrayList<>();
+        List<Long> allDrawList = new ArrayList<Long>();
         allDrawList.add(System.currentTimeMillis());
         return allDrawList;
     }

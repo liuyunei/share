@@ -2,8 +2,11 @@ package com.szce.os.dao.mapper;
 
 import com.szce.os.dao.model.OsCompanybasicinfo;
 import com.szce.os.dao.model.OsCompanybasicinfoExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public interface OsCompanybasicinfoMapper {
     long countByExample(OsCompanybasicinfoExample example);
@@ -27,4 +30,12 @@ public interface OsCompanybasicinfoMapper {
     int updateByPrimaryKeySelective(OsCompanybasicinfo record);
 
     int updateByPrimaryKey(OsCompanybasicinfo record);
+
+    OsCompanybasicinfo getOsCompanyBasicInfoByCompanyId(String ids);
+
+    int updateOsCompanyBasicInfo(OsCompanybasicinfo osCompanybasicinfo);
+
+    ArrayList<OsCompanybasicinfo> getOsCompanybasicinfosByOffsetAndLimit(HashMap<String, Integer> map);
+
+    ArrayList<OsCompanybasicinfo> getAllCompanybasicinfos();
 }

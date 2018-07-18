@@ -1,6 +1,7 @@
 package com.szce.os.dao.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class OsCompanybasicinfo implements Serializable {
@@ -93,7 +94,12 @@ public class OsCompanybasicinfo implements Serializable {
      *
      * @mbg.generated
      */
-    private String eMail;
+    private String email;
+
+    /**
+     *  企业对应的用户信息
+     */
+    private ArrayList<OsRegisterAndCompanyInfo> osRegisterAndCompanyInfos;
 
     private static final long serialVersionUID = 1L;
 
@@ -193,12 +199,20 @@ public class OsCompanybasicinfo implements Serializable {
         this.contactnumber = contactnumber;
     }
 
-    public String geteMail() {
-        return eMail;
+    public String getEmail() {
+        return email;
     }
 
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public ArrayList<OsRegisterAndCompanyInfo> getOsRegisterAndCompanyInfos() {
+        return osRegisterAndCompanyInfos;
+    }
+
+    public void setOsRegisterAndCompanyInfos(ArrayList<OsRegisterAndCompanyInfo> osRegisterAndCompanyInfos) {
+        this.osRegisterAndCompanyInfos = osRegisterAndCompanyInfos;
     }
 
     @Override
@@ -219,7 +233,7 @@ public class OsCompanybasicinfo implements Serializable {
         sb.append(", businessexecutives=").append(businessexecutives);
         sb.append(", cityoperationmanager=").append(cityoperationmanager);
         sb.append(", contactnumber=").append(contactnumber);
-        sb.append(", eMail=").append(eMail);
+        sb.append(", email=").append(email);
         sb.append("]");
         return sb.toString();
     }
@@ -248,7 +262,7 @@ public class OsCompanybasicinfo implements Serializable {
             && (this.getBusinessexecutives() == null ? other.getBusinessexecutives() == null : this.getBusinessexecutives().equals(other.getBusinessexecutives()))
             && (this.getCityoperationmanager() == null ? other.getCityoperationmanager() == null : this.getCityoperationmanager().equals(other.getCityoperationmanager()))
             && (this.getContactnumber() == null ? other.getContactnumber() == null : this.getContactnumber().equals(other.getContactnumber()))
-            && (this.geteMail() == null ? other.geteMail() == null : this.geteMail().equals(other.geteMail()));
+            && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()));
     }
 
     @Override
@@ -267,7 +281,7 @@ public class OsCompanybasicinfo implements Serializable {
         result = prime * result + ((getBusinessexecutives() == null) ? 0 : getBusinessexecutives().hashCode());
         result = prime * result + ((getCityoperationmanager() == null) ? 0 : getCityoperationmanager().hashCode());
         result = prime * result + ((getContactnumber() == null) ? 0 : getContactnumber().hashCode());
-        result = prime * result + ((geteMail() == null) ? 0 : geteMail().hashCode());
+        result = prime * result + ((getEmail() == null) ? 0 : getEmail().hashCode());
         return result;
     }
 }

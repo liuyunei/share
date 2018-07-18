@@ -7,23 +7,22 @@
         http://code.alibabatech.com/schema/dubbo
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
 
-    <dubbo:application name="share-cms-web"/>
+    <dubbo:application name="share-im-admin"/>
 
-    <dubbo:registry file="./share-cms-web-dubbo.cache" address="zookeeper://zkserver:2181"/>
+    <dubbo:registry file="./share-im-admin-dubbo.cache" address="zookeeper://zkserver:2181"/>
 
     <!-- 订阅服务 -->
     <dubbo:consumer check="false"/>
 
-    <!--=======================================================企业基础信息模块==================================================== -->
+    <!-- 电子围栏分类 -->
+    <dubbo:reference id="imElectronicfenceclassificationService" interface="com.szce.im.rpc.api.ImElectronicfenceclassificationService" mock="true"/>
+    <!-- 电子围栏基础信息 -->
+    <dubbo:reference id="imElectronicfencedataService" interface="com.szce.im.rpc.api.ImElectronicfencedataService" mock="true"/>
 
-    <!-- 企业基本信息 -->
-    <dubbo:reference id="osCompanybasicinfoService" interface="com.szce.os.rpc.api.OsCompanybasicinfoService" mock="true"/>
-    <!-- 企业相关信息 -->
-    <dubbo:reference id="osCompanyrelatedmaterialsService" interface="com.szce.os.rpc.api.OsCompanyrelatedmaterialsService" mock="true"/>
-    <!-- 企业投诉处理记录 -->
-    <dubbo:reference id="osComplainthandlingrecordService" interface="com.szce.os.rpc.api.OsComplainthandlingrecordService" mock="true"/>
-    <!-- 企业用户情况 -->
-    <dubbo:reference id="osUserreviewService" interface="com.szce.os.rpc.api.OsUserreviewService" mock="true"/>
-
-    <!--========================================================企业基础信息模块================================================= -->
+    <!-- 自行车道 -->
+    <dubbo:reference id="imBikewayService" interface="com.szce.im.rpc.api.ImBikewayService" mock="true"/>
+    <!-- 标识标志 -->
+    <dubbo:reference id="imLogosignService" interface="com.szce.im.rpc.api.ImLogosignService" mock="true"/>
+    <!-- 接口服务 -->
+    <dubbo:reference id="upmsApiService" interface="com.szce.upms.rpc.api.UpmsApiService" mock="true"/>
 </beans>

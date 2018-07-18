@@ -14,7 +14,7 @@
     <result column="BUSINESSEXECUTIVES" jdbcType="VARCHAR" property="businessexecutives" />
     <result column="CITYOPERATIONMANAGER" jdbcType="VARCHAR" property="cityoperationmanager" />
     <result column="CONTACTNUMBER" jdbcType="INTEGER" property="contactnumber" />
-    <result column="E-MAIL" jdbcType="VARCHAR" property="eMail" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -77,7 +77,7 @@
   <sql id="Base_Column_List">
     COMPANYID, COMPAYNAME, REGISTEREDCAPITAL, LEGALREPRESENTATIVE, REGISTRATIONTIME, 
     BUSINESSREGISTRATIONNUMBER, ORGANIZATIONCODEj, UNIFIEDCREDITCODE, BUSINESSOPERATIONSTATUS, 
-    BUSINESSEXECUTIVES, CITYOPERATIONMANAGER, CONTACTNUMBER, E-MAIL
+    BUSINESSEXECUTIVES, CITYOPERATIONMANAGER, CONTACTNUMBER, EMAIL
   </sql>
   <select id="selectByExample" parameterType="com.szce.os.dao.model.OsCompanybasicinfoExample" resultMap="BaseResultMap">
     select
@@ -115,13 +115,13 @@
       BUSINESSREGISTRATIONNUMBER, ORGANIZATIONCODEj, 
       UNIFIEDCREDITCODE, BUSINESSOPERATIONSTATUS, 
       BUSINESSEXECUTIVES, CITYOPERATIONMANAGER, 
-      CONTACTNUMBER, E-MAIL)
+      CONTACTNUMBER, EMAIL)
     values (#{companyid,jdbcType=VARCHAR}, #{compayname,jdbcType=VARCHAR}, #{registeredcapital,jdbcType=DOUBLE}, 
       #{legalrepresentative,jdbcType=VARCHAR}, #{registrationtime,jdbcType=TIMESTAMP}, 
       #{businessregistrationnumber,jdbcType=VARCHAR}, #{organizationcodej,jdbcType=VARCHAR}, 
       #{unifiedcreditcode,jdbcType=VARCHAR}, #{businessoperationstatus,jdbcType=VARCHAR}, 
       #{businessexecutives,jdbcType=VARCHAR}, #{cityoperationmanager,jdbcType=VARCHAR}, 
-      #{contactnumber,jdbcType=INTEGER}, #{eMail,jdbcType=VARCHAR})
+      #{contactnumber,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.szce.os.dao.model.OsCompanybasicinfo">
     insert into os_companybasicinfo
@@ -162,8 +162,8 @@
       <if test="contactnumber != null">
         CONTACTNUMBER,
       </if>
-      <if test="eMail != null">
-        E-MAIL,
+      <if test="email != null">
+        EMAIL,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -203,8 +203,8 @@
       <if test="contactnumber != null">
         #{contactnumber,jdbcType=INTEGER},
       </if>
-      <if test="eMail != null">
-        #{eMail,jdbcType=VARCHAR},
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -213,6 +213,15 @@
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
+  </select>
+  <select id="getOsCompanyBasicInfoByCompanyId" resultType="com.szce.os.dao.model.OsCompanybasicinfo">
+    select * from os_companybasicinfo where #{id} = companyid;
+  </select>
+  <select id="getOsCompanybasicinfosByOffsetAndLimit" resultType="com.szce.os.dao.model.OsCompanybasicinfo">
+    select * from os_companybasicinfo limit #{limit_num} offset #{offset_num}
+  </select>
+  <select id="getAllCompanybasicinfos" resultType="com.szce.os.dao.model.OsCompanybasicinfo">
+    select * from os_companybasicinfo
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     update os_companybasicinfo
@@ -253,8 +262,8 @@
       <if test="record.contactnumber != null">
         CONTACTNUMBER = #{record.contactnumber,jdbcType=INTEGER},
       </if>
-      <if test="record.eMail != null">
-        E-MAIL = #{record.eMail,jdbcType=VARCHAR},
+      <if test="record.email != null">
+        EMAIL = #{record.email,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -275,7 +284,7 @@
       BUSINESSEXECUTIVES = #{record.businessexecutives,jdbcType=VARCHAR},
       CITYOPERATIONMANAGER = #{record.cityoperationmanager,jdbcType=VARCHAR},
       CONTACTNUMBER = #{record.contactnumber,jdbcType=INTEGER},
-      E-MAIL = #{record.eMail,jdbcType=VARCHAR}
+      EMAIL = #{record.email,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -316,8 +325,8 @@
       <if test="contactnumber != null">
         CONTACTNUMBER = #{contactnumber,jdbcType=INTEGER},
       </if>
-      <if test="eMail != null">
-        E-MAIL = #{eMail,jdbcType=VARCHAR},
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
       </if>
     </set>
     where COMPANYID = #{companyid,jdbcType=VARCHAR}
@@ -335,8 +344,9 @@
       BUSINESSEXECUTIVES = #{businessexecutives,jdbcType=VARCHAR},
       CITYOPERATIONMANAGER = #{cityoperationmanager,jdbcType=VARCHAR},
       CONTACTNUMBER = #{contactnumber,jdbcType=INTEGER},
-      E-MAIL = #{eMail,jdbcType=VARCHAR}
+      EMAIL = #{email,jdbcType=VARCHAR}
     where COMPANYID = #{companyid,jdbcType=VARCHAR}
   </update>
+  <update id="updateOsCompanyBasicInfo" parameterType="com.szce.os.dao.model.OsCompanybasicinfo"></update>
   <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
 </mapper>

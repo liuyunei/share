@@ -7,9 +7,9 @@
         http://code.alibabatech.com/schema/dubbo
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
 
-    <dubbo:application name="share-cms-web"/>
+    <dubbo:application name="share-os-web"/>
 
-    <dubbo:registry file="./share-cms-web-dubbo.cache" address="zookeeper://zkserver:2181"/>
+    <dubbo:registry file="./share-os-web-dubbo.cache" address="zookeeper://zkserver:2181"/>
 
     <!-- 订阅服务 -->
     <dubbo:consumer check="false"/>
@@ -25,5 +25,10 @@
     <!-- 企业用户情况 -->
     <dubbo:reference id="osUserreviewService" interface="com.szce.os.rpc.api.OsUserreviewService" mock="true"/>
 
+    <!-- 用户注册信息 -->
+    <dubbo:reference id="osUserregistrationinfoService" interface="com.szce.os.rpc.api.OsUserregistrationinfoService" mock="true"/>
     <!--========================================================企业基础信息模块================================================= -->
+
+    <!-- 接口服务 -->
+    <dubbo:reference id="upmsApiService" interface="com.szce.upms.rpc.api.UpmsApiService" mock="true"/>
 </beans>

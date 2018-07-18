@@ -1,4 +1,4 @@
-package com.szce.ps.web.rocketmq;
+package com.szce.vtm.web.rocketmq;
 
 import com.alibaba.rocketmq.client.producer.DefaultMQProducer;
 import com.alibaba.rocketmq.client.producer.SendResult;

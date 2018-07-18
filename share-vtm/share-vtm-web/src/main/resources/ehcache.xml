@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ehcache>
-    <diskStore path="java.io.tmpdir/share-cms-web/ehcache"/>
+    <diskStore path="java.io.tmpdir/share-vtm-web/ehcache"/>
     <defaultCache
             maxElementsInMemory="10000"
             eternal="false"
@@ -12,7 +12,7 @@
         <persistence strategy="localTempSwap"/>
     </defaultCache>
     <cache
-            name="share-cms-web-ehcache"
+            name="share-vtm-web-ehcache"
             eternal="false"
             timeToIdleSeconds="120"
             timeToLiveSeconds="300"

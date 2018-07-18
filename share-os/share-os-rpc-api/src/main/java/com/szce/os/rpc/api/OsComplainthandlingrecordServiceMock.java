@@ -7,7 +7,7 @@ import com.szce.os.dao.model.OsComplainthandlingrecordExample;
 
 /**
 * 降级实现OsComplainthandlingrecordService接口
-* Created by liuyunei on 2018/7/10.
+* Created by liuyunei on 2018/7/17.
 */
 public class OsComplainthandlingrecordServiceMock extends BaseServiceMock<OsComplainthandlingrecordMapper, OsComplainthandlingrecord, OsComplainthandlingrecordExample> implements OsComplainthandlingrecordService {
 

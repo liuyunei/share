@@ -2,21 +2,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-
-        <groupId>com.szce</groupId>
-        <version>1.0.0</version>
-
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.szce</groupId>
+    <version>1.0.0</version>
     <artifactId>share-vtm</artifactId>
     <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+    </properties>
+
     <modules>
         <module>share-vtm-common</module>
         <module>share-vtm-dao</module>
         <module>share-vtm-rpc-api</module>
         <module>share-vtm-rpc-service</module>
-        <module>share-vtm-web</module>
         <module>share-vtm-web</module>
         <module>share-vtm-admin</module>
     </modules>
@@ -26,13 +30,13 @@
         <dependencies>
             <dependency>
                 <groupId>com.szce</groupId>
-                <artifactId>share-cms-common</artifactId>
+                <artifactId>share-vtm-common</artifactId>
                 <version>1.0.0</version>
                 <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>com.szce</groupId>
-                <artifactId>share-cms-dao</artifactId>
+                <artifactId>share-vtm-dao</artifactId>
                 <version>${project.version}</version>
                 <type>jar</type>
             </dependency>

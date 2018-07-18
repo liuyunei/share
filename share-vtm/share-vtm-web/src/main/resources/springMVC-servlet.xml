@@ -16,7 +16,7 @@
 		<!-- 公共拦截器 -->
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
-			<bean class="com.szce.ps.web.interceptor.CmsWebInterceptor"></bean>
+			<bean class="com.szce.vtm.web.interceptor.VtmWebInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 

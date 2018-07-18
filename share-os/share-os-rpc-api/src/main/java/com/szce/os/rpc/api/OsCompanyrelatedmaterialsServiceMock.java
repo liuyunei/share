@@ -7,7 +7,7 @@ import com.szce.os.dao.model.OsCompanyrelatedmaterialsExample;
 
 /**
 * 降级实现OsCompanyrelatedmaterialsService接口
-* Created by liuyunei on 2018/7/10.
+* Created by liuyunei on 2018/7/17.
 */
 public class OsCompanyrelatedmaterialsServiceMock extends BaseServiceMock<OsCompanyrelatedmaterialsMapper, OsCompanyrelatedmaterials, OsCompanyrelatedmaterialsExample> implements OsCompanyrelatedmaterialsService {
 

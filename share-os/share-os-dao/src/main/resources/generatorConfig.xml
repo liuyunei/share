@@ -52,18 +52,26 @@
                         password="root" />
 
         <!-- model生成 -->
-        <javaModelGenerator targetPackage="com.szce.os.dao.model" targetProject="E:/Work/share/share-os/share-os-dao/src/main/java" />
+        <javaModelGenerator targetPackage="com.szce.os.dao.model" targetProject="D:/Work/share/share-os/share-os-dao/src/main/java" />
 
         <!-- MapperXML生成 -->
-        <sqlMapGenerator targetPackage="com.szce.os.dao.mapper" targetProject="E:/Work/share/share-os/share-os-rpc-service/src/main/java" />
+        <sqlMapGenerator targetPackage="com.szce.os.dao.mapper" targetProject="D:/Work/share/share-os/share-os-rpc-service/src/main/java" />
 
         <!-- Mapper接口生成 -->
-        <javaClientGenerator targetPackage="com.szce.os.dao.mapper" targetProject="E:/Work/share/share-os/share-os-dao/src/main/java" type="XMLMAPPER" />
+        <javaClientGenerator targetPackage="com.szce.os.dao.mapper" targetProject="D:/Work/share/share-os/share-os-dao/src/main/java" type="XMLMAPPER" />
 
         <!-- 需要映射的表 -->
-                                    <table tableName="os_companybasicinfo" domainObjectName="OsCompanybasicinfo"></table>
+                                    <table tableName="os_bikeuseinfo" domainObjectName="OsBikeuseinfo"></table>
+                                                <table tableName="os_billmethod" domainObjectName="OsBillmethod"></table>
+                                                <table tableName="os_companybasicinfo" domainObjectName="OsCompanybasicinfo"></table>
                                                 <table tableName="os_companyrelatedmaterials" domainObjectName="OsCompanyrelatedmaterials"></table>
                                                 <table tableName="os_complainthandlingrecord" domainObjectName="OsComplainthandlingrecord"></table>
+                                                <table tableName="os_custodyinformation" domainObjectName="OsCustodyinformation"></table>
+                                                <table tableName="os_deposit" domainObjectName="OsDeposit"></table>
+                                                <table tableName="os_operationinformation" domainObjectName="OsOperationinformation"></table>
+                                                <table tableName="os_orderinformationf" domainObjectName="OsOrderinformationf"></table>
+                                                <table tableName="os_userregistrationinfo" domainObjectName="OsUserregistrationinfo"></table>
                                                 <table tableName="os_userreview" domainObjectName="OsUserreview"></table>
+                                                <table tableName="os_usersituation" domainObjectName="OsUsersituation"></table>
                         </context>
 </generatorConfiguration>

@@ -1,4 +1,4 @@
-package com.szce.ps.web.jms;
+package com.szce.vtm.web.jms;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

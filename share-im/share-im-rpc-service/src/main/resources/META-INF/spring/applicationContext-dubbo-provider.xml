@@ -7,48 +7,26 @@
         http://code.alibabatech.com/schema/dubbo
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
 
-    <dubbo:application name="share-cms-rpc-service"/>
+    <dubbo:application name="share-im-rpc-service"/>
 
     <dubbo:registry address="zookeeper://zkserver:2181"/>
 
-    <dubbo:protocol name="dubbo" port="20882"/>
+    <dubbo:protocol name="dubbo" port="20883"/>
 
     <!--<dubbo:monitor protocol="registry"/>-->
 
-    <!-- 文章 -->
-    <bean id="cmsArticleServiceImpl" class="com.szce.cms.rpc.service.impl.CmsArticleServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsArticleService" ref="cmsArticleServiceImpl" timeout="10000"/>
+    <!-- 电子围栏分类 -->
+    <bean id="imElectronicfenceclassificationServiceImpl" class="com.szce.im.rpc.service.impl.ImElectronicfenceclassificationServiceImpl"/>
+    <dubbo:service interface="com.szce.im.rpc.api.ImElectronicfenceclassificationService" ref="imElectronicfenceclassificationServiceImpl" timeout="10000"/>
 
-    <!-- 类目 -->
-    <bean id="cmsCategoryServiceImpl" class="com.szce.cms.rpc.service.impl.CmsCategoryServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsCategoryService" ref="cmsCategoryServiceImpl" timeout="10000"/>
+    <!-- 电子围栏基础信息 -->
+    <bean id="imElectronicfencedataServiceImpl" class="com.szce.im.rpc.service.impl.ImElectronicfencedataServiceImpl"/>
+    <dubbo:service interface="com.szce.im.rpc.api.ImElectronicfencedataService" ref="imElectronicfencedataServiceImpl" timeout="10000"/>
 
-    <!-- 评论 -->
-    <bean id="cmsCommentServiceImpl" class="com.szce.cms.rpc.service.impl.CmsCommentServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsCommentService" ref="cmsCommentServiceImpl" timeout="10000"/>
-
-    <!-- 标签 -->
-    <bean id="cmsTagServiceImpl" class="com.szce.cms.rpc.service.impl.CmsTagServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsTagService" ref="cmsTagServiceImpl" timeout="10000"/>
-
-    <!-- 专题 -->
-    <bean id="cmsTopicImpl" class="com.szce.cms.rpc.service.impl.CmsTopicServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsTopicService" ref="cmsTopicImpl" timeout="10000"/>
-
-    <!-- 菜单 -->
-    <bean id="cmsMenuImpl" class="com.szce.cms.rpc.service.impl.CmsMenuServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsMenuService" ref="cmsMenuImpl" timeout="10000"/>
-
-    <!-- 单页 -->
-    <bean id="cmsPageImpl" class="com.szce.cms.rpc.service.impl.CmsPageServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsPageService" ref="cmsPageImpl" timeout="10000"/>
-
-    <!-- 设置 -->
-    <bean id="cmsSettingImpl" class="com.szce.cms.rpc.service.impl.CmsSettingServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsSettingService" ref="cmsSettingImpl" timeout="10000"/>
-
-    <!-- 系统 -->
-    <bean id="cmsSystemImpl" class="com.szce.cms.rpc.service.impl.CmsSystemServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsSystemService" ref="cmsSystemImpl" timeout="10000"/>
-
+    <!-- 自行车道 -->
+    <bean id="imBikewayServiceImpl" class="com.szce.im.rpc.service.impl.ImBikewayServiceImpl"/>
+    <dubbo:service interface="com.szce.im.rpc.api.ImBikewayService" ref="imBikewayServiceImpl" timeout="10000"/>
+    <!-- 标识标志 -->
+    <bean id="imLogosignServiceImpl" class="com.szce.im.rpc.service.impl.ImLogosignServiceImpl"/>
+    <dubbo:service interface="com.szce.im.rpc.api.ImLogosignService" ref="imLogosignServiceImpl" timeout="10000"/>
 </beans>

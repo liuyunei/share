@@ -11,6 +11,10 @@
     <packaging>war</packaging>
     <artifactId>share-im-web</artifactId>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.szce</groupId>
@@ -43,6 +47,16 @@
             <groupId>com.alibaba.rocketmq</groupId>
             <artifactId>rocketmq-client</artifactId>
             <version>3.6.2.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>com.szce</groupId>
+            <artifactId>share-cms-dao</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.szce</groupId>
+            <artifactId>share-cms-rpc-api</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
@@ -101,11 +115,12 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.18.1</version>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
                 <configuration>
-                    <skipTests>true</skipTests>
-                    <testFailureIgnore>true</testFailureIgnore>
+                    <encoding>utf-8</encoding>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>

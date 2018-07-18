@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szce.os.dao.mapper.OsUserregistrationinfoMapper">
+  <resultMap id="BaseResultMap" type="com.szce.os.dao.model.OsUserregistrationinfo">
+    <id column="USERACCOUNT" jdbcType="VARCHAR" property="useraccount" />
+    <result column="IDNUMBER" jdbcType="VARCHAR" property="idnumber" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="USERPASSWORD" jdbcType="VARCHAR" property="userpassword" />
+    <result column="COMPANYID" jdbcType="VARCHAR" property="companyid" />
+    <result column="REGISTRATIONTIME" jdbcType="TIMESTAMP" property="registrationtime" />
+    <result column="BANKCARD" jdbcType="VARCHAR" property="bankcard" />
+    <result column="ALIPAY" jdbcType="VARCHAR" property="alipay" />
+    <result column="WECHAT" jdbcType="VARCHAR" property="wechat" />
+    <result column="DEPOSIT" jdbcType="INTEGER" property="deposit" />
+    <result column="BALANCE	DOUBLE" jdbcType="VARCHAR" property="balance	double" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    USERACCOUNT, IDNUMBER, USERNAME, USERPASSWORD, COMPANYID, REGISTRATIONTIME, BANKCARD, 
+    ALIPAY, WECHAT, DEPOSIT, BALANCE	DOUBLE
+  </sql>
+  <select id="selectByExample" parameterType="com.szce.os.dao.model.OsUserregistrationinfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from os_userregistrationinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from os_userregistrationinfo
+    where USERACCOUNT = #{useraccount,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from os_userregistrationinfo
+    where USERACCOUNT = #{useraccount,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.szce.os.dao.model.OsUserregistrationinfoExample">
+    delete from os_userregistrationinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.szce.os.dao.model.OsUserregistrationinfo">
+    insert into os_userregistrationinfo (USERACCOUNT, IDNUMBER, USERNAME, 
+      USERPASSWORD, COMPANYID, REGISTRATIONTIME, 
+      BANKCARD, ALIPAY, WECHAT, 
+      DEPOSIT, BALANCE	DOUBLE)
+    values (#{useraccount,jdbcType=VARCHAR}, #{idnumber,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{userpassword,jdbcType=VARCHAR}, #{companyid,jdbcType=VARCHAR}, #{registrationtime,jdbcType=TIMESTAMP}, 
+      #{bankcard,jdbcType=VARCHAR}, #{alipay,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
+      #{deposit,jdbcType=INTEGER}, #{balance	double,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.szce.os.dao.model.OsUserregistrationinfo">
+    insert into os_userregistrationinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="useraccount != null">
+        USERACCOUNT,
+      </if>
+      <if test="idnumber != null">
+        IDNUMBER,
+      </if>
+      <if test="username != null">
+        USERNAME,
+      </if>
+      <if test="userpassword != null">
+        USERPASSWORD,
+      </if>
+      <if test="companyid != null">
+        COMPANYID,
+      </if>
+      <if test="registrationtime != null">
+        REGISTRATIONTIME,
+      </if>
+      <if test="bankcard != null">
+        BANKCARD,
+      </if>
+      <if test="alipay != null">
+        ALIPAY,
+      </if>
+      <if test="wechat != null">
+        WECHAT,
+      </if>
+      <if test="deposit != null">
+        DEPOSIT,
+      </if>
+      <if test="balance	double != null">
+        BALANCE	DOUBLE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="useraccount != null">
+        #{useraccount,jdbcType=VARCHAR},
+      </if>
+      <if test="idnumber != null">
+        #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="companyid != null">
+        #{companyid,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationtime != null">
+        #{registrationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bankcard != null">
+        #{bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="alipay != null">
+        #{alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="deposit != null">
+        #{deposit,jdbcType=INTEGER},
+      </if>
+      <if test="balance	double != null">
+        #{balance	double,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.szce.os.dao.model.OsUserregistrationinfoExample" resultType="java.lang.Long">
+    select count(*) from os_userregistrationinfo
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update os_userregistrationinfo
+    <set>
+      <if test="record.useraccount != null">
+        USERACCOUNT = #{record.useraccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idnumber != null">
+        IDNUMBER = #{record.idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.username != null">
+        USERNAME = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userpassword != null">
+        USERPASSWORD = #{record.userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyid != null">
+        COMPANYID = #{record.companyid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registrationtime != null">
+        REGISTRATIONTIME = #{record.registrationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.bankcard != null">
+        BANKCARD = #{record.bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alipay != null">
+        ALIPAY = #{record.alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wechat != null">
+        WECHAT = #{record.wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deposit != null">
+        DEPOSIT = #{record.deposit,jdbcType=INTEGER},
+      </if>
+      <if test="record.balance	double != null">
+        BALANCE	DOUBLE = #{record.balance	double,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update os_userregistrationinfo
+    set USERACCOUNT = #{record.useraccount,jdbcType=VARCHAR},
+      IDNUMBER = #{record.idnumber,jdbcType=VARCHAR},
+      USERNAME = #{record.username,jdbcType=VARCHAR},
+      USERPASSWORD = #{record.userpassword,jdbcType=VARCHAR},
+      COMPANYID = #{record.companyid,jdbcType=VARCHAR},
+      REGISTRATIONTIME = #{record.registrationtime,jdbcType=TIMESTAMP},
+      BANKCARD = #{record.bankcard,jdbcType=VARCHAR},
+      ALIPAY = #{record.alipay,jdbcType=VARCHAR},
+      WECHAT = #{record.wechat,jdbcType=VARCHAR},
+      DEPOSIT = #{record.deposit,jdbcType=INTEGER},
+      BALANCE	DOUBLE = #{record.balance	double,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.szce.os.dao.model.OsUserregistrationinfo">
+    update os_userregistrationinfo
+    <set>
+      <if test="idnumber != null">
+        IDNUMBER = #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        USERPASSWORD = #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="companyid != null">
+        COMPANYID = #{companyid,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationtime != null">
+        REGISTRATIONTIME = #{registrationtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bankcard != null">
+        BANKCARD = #{bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="alipay != null">
+        ALIPAY = #{alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        WECHAT = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="deposit != null">
+        DEPOSIT = #{deposit,jdbcType=INTEGER},
+      </if>
+      <if test="balance	double != null">
+        BALANCE	DOUBLE = #{balance	double,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where USERACCOUNT = #{useraccount,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.szce.os.dao.model.OsUserregistrationinfo">
+    update os_userregistrationinfo
+    set IDNUMBER = #{idnumber,jdbcType=VARCHAR},
+      USERNAME = #{username,jdbcType=VARCHAR},
+      USERPASSWORD = #{userpassword,jdbcType=VARCHAR},
+      COMPANYID = #{companyid,jdbcType=VARCHAR},
+      REGISTRATIONTIME = #{registrationtime,jdbcType=TIMESTAMP},
+      BANKCARD = #{bankcard,jdbcType=VARCHAR},
+      ALIPAY = #{alipay,jdbcType=VARCHAR},
+      WECHAT = #{wechat,jdbcType=VARCHAR},
+      DEPOSIT = #{deposit,jdbcType=INTEGER},
+      BALANCE	DOUBLE = #{balance	double,jdbcType=VARCHAR}
+    where USERACCOUNT = #{useraccount,jdbcType=VARCHAR}
+  </update>
+  <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+</mapper>

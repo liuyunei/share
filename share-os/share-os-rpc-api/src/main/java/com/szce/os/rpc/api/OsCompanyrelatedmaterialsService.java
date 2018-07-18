@@ -6,7 +6,7 @@ import com.szce.os.dao.model.OsCompanyrelatedmaterialsExample;
 
 /**
 * OsCompanyrelatedmaterialsService接口
-* Created by liuyunei on 2018/7/10.
+* Created by liuyunei on 2018/7/17.
 */
 public interface OsCompanyrelatedmaterialsService extends BaseService<OsCompanyrelatedmaterials, OsCompanyrelatedmaterialsExample> {
 

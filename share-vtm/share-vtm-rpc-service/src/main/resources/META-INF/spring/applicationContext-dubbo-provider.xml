@@ -7,48 +7,18 @@
         http://code.alibabatech.com/schema/dubbo
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
 
-    <dubbo:application name="share-cms-rpc-service"/>
+    <dubbo:application name="share-vtm-rpc-service"/>
 
     <dubbo:registry address="zookeeper://zkserver:2181"/>
 
-    <dubbo:protocol name="dubbo" port="20882"/>
+    <dubbo:protocol name="dubbo" port="20883"/>
 
     <!--<dubbo:monitor protocol="registry"/>-->
 
-    <!-- 文章 -->
-    <bean id="cmsArticleServiceImpl" class="com.szce.cms.rpc.service.impl.CmsArticleServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsArticleService" ref="cmsArticleServiceImpl" timeout="10000"/>
 
-    <!-- 类目 -->
-    <bean id="cmsCategoryServiceImpl" class="com.szce.cms.rpc.service.impl.CmsCategoryServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsCategoryService" ref="cmsCategoryServiceImpl" timeout="10000"/>
+    <!-- 维护场地数据 -->
+    <bean id="vtmBikebasicinfoServiceImpl" class="com.szce.vtm.rpc.service.impl.VtmBikebasicinfoServiceImpl"/>
 
-    <!-- 评论 -->
-    <bean id="cmsCommentServiceImpl" class="com.szce.cms.rpc.service.impl.CmsCommentServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsCommentService" ref="cmsCommentServiceImpl" timeout="10000"/>
-
-    <!-- 标签 -->
-    <bean id="cmsTagServiceImpl" class="com.szce.cms.rpc.service.impl.CmsTagServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsTagService" ref="cmsTagServiceImpl" timeout="10000"/>
-
-    <!-- 专题 -->
-    <bean id="cmsTopicImpl" class="com.szce.cms.rpc.service.impl.CmsTopicServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsTopicService" ref="cmsTopicImpl" timeout="10000"/>
-
-    <!-- 菜单 -->
-    <bean id="cmsMenuImpl" class="com.szce.cms.rpc.service.impl.CmsMenuServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsMenuService" ref="cmsMenuImpl" timeout="10000"/>
-
-    <!-- 单页 -->
-    <bean id="cmsPageImpl" class="com.szce.cms.rpc.service.impl.CmsPageServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsPageService" ref="cmsPageImpl" timeout="10000"/>
-
-    <!-- 设置 -->
-    <bean id="cmsSettingImpl" class="com.szce.cms.rpc.service.impl.CmsSettingServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsSettingService" ref="cmsSettingImpl" timeout="10000"/>
-
-    <!-- 系统 -->
-    <bean id="cmsSystemImpl" class="com.szce.cms.rpc.service.impl.CmsSystemServiceImpl"/>
-    <dubbo:service interface="com.szce.cms.rpc.api.CmsSystemService" ref="cmsSystemImpl" timeout="10000"/>
+    <dubbo:service interface="com.szce.vtm.rpc.api.VtmBikebasicinfoService" ref="vtmBikebasicinfoServiceImpl" timeout="10000"/>
 
 </beans>

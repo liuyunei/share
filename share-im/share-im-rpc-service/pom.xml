@@ -23,6 +23,16 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.szce</groupId>
+            <artifactId>share-cms-rpc-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.szce</groupId>
+            <artifactId>share-cms-rpc-service</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
     <profiles>

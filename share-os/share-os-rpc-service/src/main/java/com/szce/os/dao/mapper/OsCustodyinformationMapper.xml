@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szce.os.dao.mapper.OsCustodyinformationMapper">
+  <resultMap id="BaseResultMap" type="com.szce.os.dao.model.OsCustodyinformation">
+    <id column="CUSTODYINFORMATIONID" jdbcType="VARCHAR" property="custodyinformationid" />
+    <result column="COMPANYNAME" jdbcType="VARCHAR" property="companyname" />
+    <result column="CUSTODYBIKEID" jdbcType="VARCHAR" property="custodybikeid" />
+    <result column="BREAKDOWNSORT" jdbcType="VARCHAR" property="breakdownsort" />
+    <result column="CUSTODYSTARTTIME" jdbcType="TIMESTAMP" property="custodystarttime" />
+    <result column="CUSTODYENDTIME" jdbcType="TIMESTAMP" property="custodyendtime" />
+    <result column="RETURNTIME" jdbcType="TIMESTAMP" property="returntime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    CUSTODYINFORMATIONID, COMPANYNAME, CUSTODYBIKEID, BREAKDOWNSORT, CUSTODYSTARTTIME, 
+    CUSTODYENDTIME, RETURNTIME
+  </sql>
+  <select id="selectByExample" parameterType="com.szce.os.dao.model.OsCustodyinformationExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from os_custodyinformation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from os_custodyinformation
+    where CUSTODYINFORMATIONID = #{custodyinformationid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from os_custodyinformation
+    where CUSTODYINFORMATIONID = #{custodyinformationid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.szce.os.dao.model.OsCustodyinformationExample">
+    delete from os_custodyinformation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.szce.os.dao.model.OsCustodyinformation">
+    insert into os_custodyinformation (CUSTODYINFORMATIONID, COMPANYNAME, 
+      CUSTODYBIKEID, BREAKDOWNSORT, CUSTODYSTARTTIME, 
+      CUSTODYENDTIME, RETURNTIME)
+    values (#{custodyinformationid,jdbcType=VARCHAR}, #{companyname,jdbcType=VARCHAR}, 
+      #{custodybikeid,jdbcType=VARCHAR}, #{breakdownsort,jdbcType=VARCHAR}, #{custodystarttime,jdbcType=TIMESTAMP}, 
+      #{custodyendtime,jdbcType=TIMESTAMP}, #{returntime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.szce.os.dao.model.OsCustodyinformation">
+    insert into os_custodyinformation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="custodyinformationid != null">
+        CUSTODYINFORMATIONID,
+      </if>
+      <if test="companyname != null">
+        COMPANYNAME,
+      </if>
+      <if test="custodybikeid != null">
+        CUSTODYBIKEID,
+      </if>
+      <if test="breakdownsort != null">
+        BREAKDOWNSORT,
+      </if>
+      <if test="custodystarttime != null">
+        CUSTODYSTARTTIME,
+      </if>
+      <if test="custodyendtime != null">
+        CUSTODYENDTIME,
+      </if>
+      <if test="returntime != null">
+        RETURNTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="custodyinformationid != null">
+        #{custodyinformationid,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null">
+        #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="custodybikeid != null">
+        #{custodybikeid,jdbcType=VARCHAR},
+      </if>
+      <if test="breakdownsort != null">
+        #{breakdownsort,jdbcType=VARCHAR},
+      </if>
+      <if test="custodystarttime != null">
+        #{custodystarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custodyendtime != null">
+        #{custodyendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="returntime != null">
+        #{returntime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.szce.os.dao.model.OsCustodyinformationExample" resultType="java.lang.Long">
+    select count(*) from os_custodyinformation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update os_custodyinformation
+    <set>
+      <if test="record.custodyinformationid != null">
+        CUSTODYINFORMATIONID = #{record.custodyinformationid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyname != null">
+        COMPANYNAME = #{record.companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.custodybikeid != null">
+        CUSTODYBIKEID = #{record.custodybikeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.breakdownsort != null">
+        BREAKDOWNSORT = #{record.breakdownsort,jdbcType=VARCHAR},
+      </if>
+      <if test="record.custodystarttime != null">
+        CUSTODYSTARTTIME = #{record.custodystarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.custodyendtime != null">
+        CUSTODYENDTIME = #{record.custodyendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.returntime != null">
+        RETURNTIME = #{record.returntime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update os_custodyinformation
+    set CUSTODYINFORMATIONID = #{record.custodyinformationid,jdbcType=VARCHAR},
+      COMPANYNAME = #{record.companyname,jdbcType=VARCHAR},
+      CUSTODYBIKEID = #{record.custodybikeid,jdbcType=VARCHAR},
+      BREAKDOWNSORT = #{record.breakdownsort,jdbcType=VARCHAR},
+      CUSTODYSTARTTIME = #{record.custodystarttime,jdbcType=TIMESTAMP},
+      CUSTODYENDTIME = #{record.custodyendtime,jdbcType=TIMESTAMP},
+      RETURNTIME = #{record.returntime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.szce.os.dao.model.OsCustodyinformation">
+    update os_custodyinformation
+    <set>
+      <if test="companyname != null">
+        COMPANYNAME = #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="custodybikeid != null">
+        CUSTODYBIKEID = #{custodybikeid,jdbcType=VARCHAR},
+      </if>
+      <if test="breakdownsort != null">
+        BREAKDOWNSORT = #{breakdownsort,jdbcType=VARCHAR},
+      </if>
+      <if test="custodystarttime != null">
+        CUSTODYSTARTTIME = #{custodystarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="custodyendtime != null">
+        CUSTODYENDTIME = #{custodyendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="returntime != null">
+        RETURNTIME = #{returntime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where CUSTODYINFORMATIONID = #{custodyinformationid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.szce.os.dao.model.OsCustodyinformation">
+    update os_custodyinformation
+    set COMPANYNAME = #{companyname,jdbcType=VARCHAR},
+      CUSTODYBIKEID = #{custodybikeid,jdbcType=VARCHAR},
+      BREAKDOWNSORT = #{breakdownsort,jdbcType=VARCHAR},
+      CUSTODYSTARTTIME = #{custodystarttime,jdbcType=TIMESTAMP},
+      CUSTODYENDTIME = #{custodyendtime,jdbcType=TIMESTAMP},
+      RETURNTIME = #{returntime,jdbcType=TIMESTAMP}
+    where CUSTODYINFORMATIONID = #{custodyinformationid,jdbcType=VARCHAR}
+  </update>
+  <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+</mapper>

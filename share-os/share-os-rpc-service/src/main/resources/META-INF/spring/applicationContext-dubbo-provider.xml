@@ -32,6 +32,10 @@
     <bean id="osUserreviewServiceImpl" class="com.szce.os.rpc.service.impl.OsUserreviewServiceImpl"/>
     <dubbo:service interface="com.szce.os.rpc.api.OsUserreviewService" ref="osUserreviewServiceImpl" timeout="10000"/>
 
+    <!-- 企业用户信息情况 -->
+    <bean id="osUserregistrationinfoServiceImpl" class="com.szce.os.rpc.service.impl.OsUserregistrationinfoServiceImpl"/>
+    <dubbo:service interface="com.szce.os.rpc.api.OsUserregistrationinfoService" ref="osUserregistrationinfoServiceImpl" timeout="10000"/>
+
     <!--===============================================基础信息模块  ========================================================-->
 
 </beans>

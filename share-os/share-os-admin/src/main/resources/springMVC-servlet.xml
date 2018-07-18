@@ -10,24 +10,24 @@
     <!-- 根目录'/'对应页面 -->
 
 
-    <!-- 拦截器配置 -->
-    <mvc:interceptors>
-        <!-- 后台拦截器 -->
-        <mvc:interceptor>
-            <!-- 拦截路径 -->
-            <mvc:mapping path="/manage/**"/>
-            <!-- 非拦截路径 -->
-            <mvc:exclude-mapping path="/manage/login"/>
-            <!-- 拦截器对象 -->
-            <bean id="manageInterceptor" class="com.szce.os.admin.interceptor.ManageInterceptor"/>
-        </mvc:interceptor>
-    </mvc:interceptors>
+    <!--&lt;!&ndash; 拦截器配置 &ndash;&gt;-->
+    <!--<mvc:interceptors>-->
+        <!--&lt;!&ndash; 后台拦截器 &ndash;&gt;-->
+        <!--<mvc:interceptor>-->
+            <!--&lt;!&ndash; 拦截路径 &ndash;&gt;-->
+            <!--<mvc:mapping path="/manage/**"/>-->
+            <!--&lt;!&ndash; 非拦截路径 &ndash;&gt;-->
+            <!--<mvc:exclude-mapping path="/manage/login"/>-->
+            <!--&lt;!&ndash; 拦截器对象 &ndash;&gt;-->
+            <!--<bean id="manageInterceptor" class="com.szce.os.admin.interceptor"/>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
 
     <!-- Jsp视图 -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="order" value="1"/>
         <property name="prefix" value="/WEB-INF/jsp"/>
-        <property name="suffix" value=""/>
+        <property name="suffix" value=".jsp"/>
         <property name="contentType" value="text/html; charset=utf-8"/>
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
     </bean>
